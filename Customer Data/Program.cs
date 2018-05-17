@@ -11,6 +11,9 @@ namespace Customer_Data
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
+        /// 
+
+            //Kommentar für Test Kommit
         [STAThread]
         static void Main()
         {

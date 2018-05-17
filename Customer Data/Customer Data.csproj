@@ -61,6 +61,7 @@
       <DependentUpon>AddNewCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs" />
+<<<<<<< HEAD
     <Compile Include="GlobalStrings.de.Designer.cs">
       <DependentUpon>GlobalStrings.de.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -71,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+=======
+    <Compile Include="ListCustomer.cs" />
+>>>>>>> dccee6e4940779277568610b2bde2aba5ebd4698
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
