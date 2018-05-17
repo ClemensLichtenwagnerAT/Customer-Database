@@ -170,15 +170,15 @@ namespace Customer_Data
         {
             try
             {
-                if (!Double.TryParse(Txb_MoneyAccount.Text, out double money))
-                {
-                    this.EP_ErrorMessage.SetError(Txb_MoneyAccount, "Invalid characters are included!");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    EP_ErrorMessage.Clear();
-                }
+                ////if (!Double.TryParse(Txb_MoneyAccount.Text, out double money))
+                ////{
+                ////    this.EP_ErrorMessage.SetError(Txb_MoneyAccount, "Invalid characters are included!");
+                ////    e.Cancel = true;
+                ////}
+                ////else
+                ////{
+                ////    EP_ErrorMessage.Clear();
+                ////}
             }
             catch (Exception ex)
             {

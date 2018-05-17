@@ -8,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace Customer_Data
 {
+    /// <summary>
+    /// TODO
+    /// </summary>
+    /// 
     public class Customer
     {
         #region Membervariablen
+        private int _CustomerID;
         private string _FirstName;
         private string _LastName;
         private string _EmailAdresse;
@@ -19,17 +24,42 @@ namespace Customer_Data
         #endregion
 
         #region Constructor
-        public Customer(string firstName, string lastName, string emailAdresse, double openBalance, DateTime lastChange)
+        public Customer(int customerID, string firstName, string lastName, string emailAdresse, double openBalance, DateTime lastChange)
         {
+            this.CustomerID = customerID;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.EmailAddress = emailAdresse;
             this.OpenBalance = openBalance;
             this.LastChange = lastChange;
         }
+
+        public Customer(string firstName, string lastName, string emailAdresse, double openBalance, DateTime lastChange)
+        {
+            this.CustomerID = 0;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.EmailAddress = emailAdresse;
+            this.OpenBalance = openBalance;
+            this.LastChange = lastChange;
+        }
+
+
         #endregion
 
         #region Properties
+
+        public int CustomerID
+        {
+            get
+            {
+                return this._CustomerID;
+            }
+            set
+            {
+                this._CustomerID = value;
+            }
+        }
         public string FirstName
         {
             get
