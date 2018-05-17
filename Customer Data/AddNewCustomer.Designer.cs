@@ -115,7 +115,7 @@
             // 
             this.Btn_SaveCustomer.Location = new System.Drawing.Point(32, 136);
             this.Btn_SaveCustomer.Name = "Btn_SaveCustomer";
-            this.Btn_SaveCustomer.Size = new System.Drawing.Size(100, 26);
+            this.Btn_SaveCustomer.Size = new System.Drawing.Size(145, 26);
             this.Btn_SaveCustomer.TabIndex = 9;
             this.Btn_SaveCustomer.Text = "Save";
             this.Btn_SaveCustomer.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             // 
             this.Btn_Close.Location = new System.Drawing.Point(32, 168);
             this.Btn_Close.Name = "Btn_Close";
-            this.Btn_Close.Size = new System.Drawing.Size(100, 26);
+            this.Btn_Close.Size = new System.Drawing.Size(145, 26);
             this.Btn_Close.TabIndex = 10;
             this.Btn_Close.Text = "Quit";
             this.Btn_Close.UseVisualStyleBackColor = true;
@@ -152,6 +152,7 @@
             this.Controls.Add(this.Txb_FirstName);
             this.Name = "AddNewCustomer";
             this.Text = "AddNewCustomer";
+            this.Load += new System.EventHandler(this.AddNewCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EP_ErrorMessage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

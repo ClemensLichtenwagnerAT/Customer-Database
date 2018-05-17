@@ -185,5 +185,16 @@ namespace Customer_Data
 
             }
         }
+
+        private void AddNewCustomer_Load(object sender, EventArgs e)
+        {
+            this.Text = GlobalStrings.FormAddCustomer;
+            label1.Text = GlobalStrings.LblFirstName;
+            label2.Text = GlobalStrings.LblLastName;
+            label3.Text = GlobalStrings.LblEmail;
+            label4.Text = GlobalStrings.LblMoney;
+            Btn_Close.Text = GlobalStrings.Btn_QuitText;
+            Btn_SaveCustomer.Text = GlobalStrings.BtnSave;
+        }
     }
 }

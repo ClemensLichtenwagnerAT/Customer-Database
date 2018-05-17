@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
 
@@ -116,8 +117,38 @@ namespace Customer_Data
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            toolStripComboBox_SetLanguage.Items.Add("English");
+            toolStripComboBox_SetLanguage.Items.Add("German");
+            toolStripComboBox_SetLanguage.SelectedIndex = 0;
+            toolStripComboBox_SetLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-    }
 
+        private void toolStripComboBox_SetLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (toolStripComboBox_SetLanguage.SelectedIndex == 0)
+            {
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en");
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
+            }
+            else if (toolStripComboBox_SetLanguage.SelectedIndex == 1)
+            {
+                System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("de");
+                System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("de");
+            }
+            // Change Language of the whole Form
+            this.Text = GlobalStrings.FormCustomerDatabase;
+            databaseToolStripMenuItem.Text = GlobalStrings.ToolStripeMenüDatabase;
+            addDatabaseToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemaAddDatabase;
+            openDatabaseToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemaOpenDatabase;
+            addCustomerToolStripMenuItem1.Text = GlobalStrings.ToolStripMenuItemaAddCustomer;
+            showCustomerListToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemShowCustomerList;
+            hideCustomerListToolStripMenuItem1.Text = GlobalStrings.ToolStripMenuItemHideCustomerList;
+            paymentsToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemPayments;
+            languageToolStripMenuItem.Text = GlobalStrings.ToolStripLanguage;
+
+            //DataGridView_CustomerList.ColumnCount = 5;
+        }
+
+
+    }
 }

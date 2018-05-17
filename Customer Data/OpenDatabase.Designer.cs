@@ -39,9 +39,9 @@
             // 
             // Btn_Close
             // 
-            this.Btn_Close.Location = new System.Drawing.Point(206, 140);
+            this.Btn_Close.Location = new System.Drawing.Point(229, 140);
             this.Btn_Close.Name = "Btn_Close";
-            this.Btn_Close.Size = new System.Drawing.Size(117, 30);
+            this.Btn_Close.Size = new System.Drawing.Size(123, 30);
             this.Btn_Close.TabIndex = 11;
             this.Btn_Close.Text = "Quit";
             this.Btn_Close.UseVisualStyleBackColor = true;
@@ -51,7 +51,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(203, 27);
+            this.label2.Location = new System.Drawing.Point(226, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 15);
             this.label2.TabIndex = 13;
@@ -60,7 +60,7 @@
             // Txb_EnterPassword
             // 
             this.Txb_EnterPassword.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txb_EnterPassword.Location = new System.Drawing.Point(206, 48);
+            this.Txb_EnterPassword.Location = new System.Drawing.Point(229, 48);
             this.Txb_EnterPassword.Name = "Txb_EnterPassword";
             this.Txb_EnterPassword.Size = new System.Drawing.Size(165, 23);
             this.Txb_EnterPassword.TabIndex = 12;
@@ -80,7 +80,7 @@
             // 
             this.Btn_SearchDatabase.Location = new System.Drawing.Point(17, 77);
             this.Btn_SearchDatabase.Name = "Btn_SearchDatabase";
-            this.Btn_SearchDatabase.Size = new System.Drawing.Size(164, 30);
+            this.Btn_SearchDatabase.Size = new System.Drawing.Size(197, 30);
             this.Btn_SearchDatabase.TabIndex = 17;
             this.Btn_SearchDatabase.Text = "Search Database";
             this.Btn_SearchDatabase.UseVisualStyleBackColor = true;
@@ -90,14 +90,14 @@
             // 
             this.Txb_ChoosenDatabase.Location = new System.Drawing.Point(17, 48);
             this.Txb_ChoosenDatabase.Name = "Txb_ChoosenDatabase";
-            this.Txb_ChoosenDatabase.Size = new System.Drawing.Size(164, 23);
+            this.Txb_ChoosenDatabase.Size = new System.Drawing.Size(197, 23);
             this.Txb_ChoosenDatabase.TabIndex = 18;
             // 
             // Btn_OpenChoosenDatabase
             // 
             this.Btn_OpenChoosenDatabase.Location = new System.Drawing.Point(17, 140);
             this.Btn_OpenChoosenDatabase.Name = "Btn_OpenChoosenDatabase";
-            this.Btn_OpenChoosenDatabase.Size = new System.Drawing.Size(164, 30);
+            this.Btn_OpenChoosenDatabase.Size = new System.Drawing.Size(197, 30);
             this.Btn_OpenChoosenDatabase.TabIndex = 19;
             this.Btn_OpenChoosenDatabase.Text = "Open choosen Database";
             this.Btn_OpenChoosenDatabase.UseVisualStyleBackColor = true;
@@ -118,6 +118,7 @@
             this.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "OpenDatabase";
             this.Text = "Open Database";
+            this.Load += new System.EventHandler(this.OpenDatabase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

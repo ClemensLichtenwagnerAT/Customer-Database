@@ -98,5 +98,14 @@ namespace Customer_Data
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void AddDatabase_Load(object sender, EventArgs e)
+        {
+            this.Text = GlobalStrings.FormAddDatabase;
+            Btn_Close.Text = GlobalStrings.Btn_QuitText;
+            Btn_CreateDatabase.Text = GlobalStrings.Btn_CreateDatabaseText;
+            label1.Text = GlobalStrings.Lbl_NameNewDatabaseText;
+            label2.Text = GlobalStrings.Lbl_PasswordText;
+        }
     }
 }

@@ -73,5 +73,15 @@ namespace Customer_Data
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void OpenDatabase_Load(object sender, EventArgs e)
+        {
+            this.Text = GlobalStrings.FormOpenDatabase;
+            label1.Text = GlobalStrings.LblChoosenDatabase;
+            label2.Text = GlobalStrings.LblPassword;
+            Btn_Close.Text = GlobalStrings.Btn_QuitText;
+            Btn_OpenChoosenDatabase.Text = GlobalStrings.BtnOpenChoosenDatabase;
+            Btn_SearchDatabase.Text = GlobalStrings.BtnSearchDatabase;
+        }
     }
 }
