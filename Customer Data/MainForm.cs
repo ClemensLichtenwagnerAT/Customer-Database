@@ -104,6 +104,8 @@ namespace Customer_Data
                 ////DataGridView_CustomerList.Rows.Add(columnData);
                 //DataGridView_CustomerList.Visible = true;
                 //Lbl_Customers.Visible = true;
+
+                // Test ****************************
             }
             catch (Exception ex)
             {
