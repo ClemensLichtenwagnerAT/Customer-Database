@@ -134,7 +134,7 @@ namespace Customer_Data
                     EP_ErrorMessage.Clear();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
             }
@@ -160,7 +160,7 @@ namespace Customer_Data
                     this.EP_ErrorMessage.Clear();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -180,7 +180,7 @@ namespace Customer_Data
                 ////    EP_ErrorMessage.Clear();
                 ////}
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

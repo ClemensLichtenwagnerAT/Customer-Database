@@ -34,7 +34,7 @@ namespace Customer_Data
                 this._Amount = Convert.ToInt32(Txb_Amount.Text);
                 this.Close();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
@@ -47,7 +47,7 @@ namespace Customer_Data
                 this._Amount = Convert.ToInt32(Txb_Amount.Text);
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -59,7 +59,7 @@ namespace Customer_Data
             {
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
