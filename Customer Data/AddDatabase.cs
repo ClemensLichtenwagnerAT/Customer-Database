@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
+using ClassLibary;
 
 namespace Customer_Data
 {
     public partial class AddDatabase : Form
     {
+        private ListCustomer listCustomer = new ListCustomer();
 
         public AddDatabase()
         {
@@ -15,6 +17,7 @@ namespace Customer_Data
         }
 
         #region Properties
+        
         public string NameDatabase
         {
             get
@@ -37,11 +40,21 @@ namespace Customer_Data
         {
             try
             {
-                this.Close();
+                //Check if database was successfully created
+                if (listCustomer.CreateNewDataBase(Txb_NameNewDatabase.Text, Txb_Password.Text))
+                {
+                    DialogResult = DialogResult.OK;
+                    MessageBox.Show(GlobalStrings.DBCreatedSuccesfully);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(GlobalStrings.FailureCreatingDatabase);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error creating Database! " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -49,6 +62,7 @@ namespace Customer_Data
         {
             try
             {
+                DialogResult = DialogResult.Cancel;
                 this.Close();
             }
             catch (Exception ex)
@@ -63,7 +77,7 @@ namespace Customer_Data
             {
                 if (Txb_NameNewDatabase.Text.Length == 0)
                 {
-                    this.EP_ErrorMessage.SetError(Txb_NameNewDatabase, "Database name must have a least one character!");
+                    this.EP_ErrorMessage.SetError(Txb_NameNewDatabase, GlobalStrings.FailureInputTxbNames_Empty);
                     e.Cancel = true;
                 }
                 else
@@ -72,7 +86,7 @@ namespace Customer_Data
                     e.Cancel = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -82,9 +96,9 @@ namespace Customer_Data
         {
             try
             {
-                if (Txb_NameNewDatabase.Text.Length == 0)
+                if (Txb_Password.Text.Length == 0)
                 {
-                    this.EP_ErrorMessage.SetError(Txb_Password, "Password must have a least one character!");
+                    this.EP_ErrorMessage.SetError(Txb_Password, GlobalStrings.FailureInputTxbNames_Empty);
                     e.Cancel = true;
                 }
                 else

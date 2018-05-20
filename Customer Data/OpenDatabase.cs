@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibary;
 
 namespace Customer_Data
 {
     public partial class OpenDatabase : Form
     {
+        private ListCustomer CustomerList = new ListCustomer();
+
         public OpenDatabase()
         {
             InitializeComponent();
@@ -50,15 +53,28 @@ namespace Customer_Data
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading the database! " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void Btn_OpenChoosenDatabase_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            // Tobi: Prüfe ob Datenbank geöffnet werden kann
-            this.Close();
+            try
+            {
+                if (CustomerList.LoadDataBase(Txb_ChoosenDatabase.Text, Txb_EnterPassword.Text))
+                {
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+               else
+                {
+                    MessageBox.Show(GlobalStrings.FailureOpenDatabase);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Btn_Close_Click(object sender, EventArgs e)
@@ -76,6 +92,7 @@ namespace Customer_Data
 
         private void OpenDatabase_Load(object sender, EventArgs e)
         {
+            // set language
             this.Text = GlobalStrings.FormOpenDatabase;
             label1.Text = GlobalStrings.LblChoosenDatabase;
             label2.Text = GlobalStrings.LblPassword;

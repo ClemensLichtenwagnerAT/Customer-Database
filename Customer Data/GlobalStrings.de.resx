@@ -195,4 +195,76 @@
   <data name="ToolStripMenuItemShowCustomerList" xml:space="preserve">
     <value>Kundenliste anzeigen</value>
   </data>
+  <data name="BtnPayIn" xml:space="preserve">
+    <value>Einzahlen</value>
+  </data>
+  <data name="BtnPayOut" xml:space="preserve">
+    <value>Auszahlen</value>
+  </data>
+  <data name="DataGridView_Column_EmailText" xml:space="preserve">
+    <value>E-mail Addresse</value>
+  </data>
+  <data name="DataGridView_Column_FirstNameText" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="DataGridView_Column_LastChangeText" xml:space="preserve">
+    <value>Letzte Änderung</value>
+  </data>
+  <data name="DataGridView_Column_LastNameText" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="DataGridView_Column_OpenBalanceText" xml:space="preserve">
+    <value>Guthaben</value>
+  </data>
+  <data name="FailureAddCustomer" xml:space="preserve">
+    <value>Es wurde kein Kunde hinzugefügt!</value>
+  </data>
+  <data name="FailureCreatingDatabase" xml:space="preserve">
+    <value>Datenbank konnte nicht erstellt werden!</value>
+  </data>
+  <data name="FailureInputTxbEmail" xml:space="preserve">
+    <value>Unkorrekte E-Mail Addresse!</value>
+  </data>
+  <data name="FailureInputTxbNames_Empty" xml:space="preserve">
+    <value>Eingabefeld darf nicht leer sein!</value>
+  </data>
+  <data name="FailureInputTxbNames_InvalidFirstLetter" xml:space="preserve">
+    <value>Erster Buchstabe muss ein Großbuchstabe sein!</value>
+  </data>
+  <data name="FailureOpenDatabase" xml:space="preserve">
+    <value>Datenbank konnte nicht geöffnet werden! Passwort überprüfen!</value>
+  </data>
+  <data name="FailureOpenDatabaseMessageBox" xml:space="preserve">
+    <value>Fehler beim Laden der gewählten Datenbank!</value>
+  </data>
+  <data name="FailureTxbAmount" xml:space="preserve">
+    <value>Unzulässige Zeichen enthalten!</value>
+  </data>
+  <data name="FormPayments" xml:space="preserve">
+    <value>Zahlungsverkehr</value>
+  </data>
+  <data name="LblAmount" xml:space="preserve">
+    <value>Betrag</value>
+  </data>
+  <data name="AddCustomerSuccessful" xml:space="preserve">
+    <value>Kunde wurde erfolgreich hinzugefügt!</value>
+  </data>
+  <data name="DBCreatedSuccesfully" xml:space="preserve">
+    <value>Datenbank wurde erstellt!</value>
+  </data>
+  <data name="Lbl_Database" xml:space="preserve">
+    <value>Datenbank:</value>
+  </data>
+  <data name="Lbl_DatabaseName_Default" xml:space="preserve">
+    <value>Keine Datenbank ausgewählt</value>
+  </data>
+  <data name="NoDatabaseSelected" xml:space="preserve">
+    <value>Um einen Kunden hinzufügen zu können, muss zuerst eine Datenbank ausgewählt werden!</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FailureAddCustomer_2" xml:space="preserve">
+    <value>Kunde konnte nicht hinzugefügt werden!</value>
+  </data>
 </root>

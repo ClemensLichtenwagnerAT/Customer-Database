@@ -61,6 +61,15 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Customer added successfully! ähnelt.
+        /// </summary>
+        internal static string AddCustomerSuccessful {
+            get {
+                return ResourceManager.GetString("AddCustomerSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Create Database ähnelt.
         /// </summary>
         internal static string Btn_CreateDatabaseText {
@@ -88,6 +97,24 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Pay in ähnelt.
+        /// </summary>
+        internal static string BtnPayIn {
+            get {
+                return ResourceManager.GetString("BtnPayIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Pay out ähnelt.
+        /// </summary>
+        internal static string BtnPayOut {
+            get {
+                return ResourceManager.GetString("BtnPayOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save ähnelt.
         /// </summary>
         internal static string BtnSave {
@@ -111,6 +138,141 @@ namespace Customer_Data {
         internal static string DataGridFirstName {
             get {
                 return ResourceManager.GetString("DataGridFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die E-mail address ähnelt.
+        /// </summary>
+        internal static string DataGridView_Column_EmailText {
+            get {
+                return ResourceManager.GetString("DataGridView_Column_EmailText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die First name ähnelt.
+        /// </summary>
+        internal static string DataGridView_Column_FirstNameText {
+            get {
+                return ResourceManager.GetString("DataGridView_Column_FirstNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Last change ähnelt.
+        /// </summary>
+        internal static string DataGridView_Column_LastChangeText {
+            get {
+                return ResourceManager.GetString("DataGridView_Column_LastChangeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Last name ähnelt.
+        /// </summary>
+        internal static string DataGridView_Column_LastNameText {
+            get {
+                return ResourceManager.GetString("DataGridView_Column_LastNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Credit ähnelt.
+        /// </summary>
+        internal static string DataGridView_Column_OpenBalanceText {
+            get {
+                return ResourceManager.GetString("DataGridView_Column_OpenBalanceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Database created successfully! ähnelt.
+        /// </summary>
+        internal static string DBCreatedSuccesfully {
+            get {
+                return ResourceManager.GetString("DBCreatedSuccesfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No customer was added! ähnelt.
+        /// </summary>
+        internal static string FailureAddCustomer {
+            get {
+                return ResourceManager.GetString("FailureAddCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Customer could not be added! ähnelt.
+        /// </summary>
+        internal static string FailureAddCustomer_2 {
+            get {
+                return ResourceManager.GetString("FailureAddCustomer_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Database could not be created! ähnelt.
+        /// </summary>
+        internal static string FailureCreatingDatabase {
+            get {
+                return ResourceManager.GetString("FailureCreatingDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Incorrect E-mail address! ähnelt.
+        /// </summary>
+        internal static string FailureInputTxbEmail {
+            get {
+                return ResourceManager.GetString("FailureInputTxbEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Textfield can not be empty! ähnelt.
+        /// </summary>
+        internal static string FailureInputTxbNames_Empty {
+            get {
+                return ResourceManager.GetString("FailureInputTxbNames_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die First letter must be a capital letter! ähnelt.
+        /// </summary>
+        internal static string FailureInputTxbNames_InvalidFirstLetter {
+            get {
+                return ResourceManager.GetString("FailureInputTxbNames_InvalidFirstLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Database could not be opened! Check password! ähnelt.
+        /// </summary>
+        internal static string FailureOpenDatabase {
+            get {
+                return ResourceManager.GetString("FailureOpenDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error loading the selected database! ähnelt.
+        /// </summary>
+        internal static string FailureOpenDatabaseMessageBox {
+            get {
+                return ResourceManager.GetString("FailureOpenDatabaseMessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Invalid characters are included! ähnelt.
+        /// </summary>
+        internal static string FailureTxbAmount {
+            get {
+                return ResourceManager.GetString("FailureTxbAmount", resourceCulture);
             }
         }
         
@@ -151,6 +313,33 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Payments ähnelt.
+        /// </summary>
+        internal static string FormPayments {
+            get {
+                return ResourceManager.GetString("FormPayments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Database: ähnelt.
+        /// </summary>
+        internal static string Lbl_Database {
+            get {
+                return ResourceManager.GetString("Lbl_Database", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No database selected. ähnelt.
+        /// </summary>
+        internal static string Lbl_DatabaseName_Default {
+            get {
+                return ResourceManager.GetString("Lbl_DatabaseName_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Name of the new database ähnelt.
         /// </summary>
         internal static string Lbl_NameNewDatabaseText {
@@ -165,6 +354,15 @@ namespace Customer_Data {
         internal static string Lbl_PasswordText {
             get {
                 return ResourceManager.GetString("Lbl_PasswordText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Amount ähnelt.
+        /// </summary>
+        internal static string LblAmount {
+            get {
+                return ResourceManager.GetString("LblAmount", resourceCulture);
             }
         }
         
@@ -219,6 +417,15 @@ namespace Customer_Data {
         internal static string LblPassword {
             get {
                 return ResourceManager.GetString("LblPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die In order to be able to add a customer, a database must first be selected! ähnelt.
+        /// </summary>
+        internal static string NoDatabaseSelected {
+            get {
+                return ResourceManager.GetString("NoDatabaseSelected", resourceCulture);
             }
         }
         

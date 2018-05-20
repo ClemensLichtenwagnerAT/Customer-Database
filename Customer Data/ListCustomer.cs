@@ -1,5 +1,4 @@
-﻿
-using Customer_Data;
+﻿using Customer_Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -76,25 +75,26 @@ namespace ClassLibary
         /// <returns></returns>
         public bool CreateNewDataBase(string name, string password)
         {
-            string path = @"H:\MaSem2\SE\Project\"+name+".csv";
-            if(!File.Exists(path))
+            string path = @"c:\Datenbanken\" + name + ".csv";
+            if (!File.Exists(path))
             {
-                File.WriteAllText(path, password);
+                File.WriteAllText(path, EncodeWord(password, true));
                 return true;
             }
             else
             {
                 return false;
-            }         
+            }
         }
 
         public bool LoadDataBase(string name, string password)
-        {          
-            string path = @"H:\MaSem2\SE\Project\" + name + ".csv";
+        {
+            string path = @"c:\Datenbanken\" + name;
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException();
-            }else if(File.ReadLines(path).First().Equals(password))
+            }
+            else if (File.ReadLines(path).First().Equals(EncodeWord(password, true)))
             {
                 DataBaseName = name;
                 Password = password;
@@ -102,37 +102,52 @@ namespace ClassLibary
                 string[] lines = File.ReadAllLines(path);
                 lines = lines.Skip(1).ToArray();
                 foreach (string line in lines)
-                {                   
+                {
                     string[] parts = line.Split(';');
+
+                    for (int i = 1; i < parts.Length - 1; i++)
+                    {
+                        parts[i] = EncodeWord(parts[i], false);
+                    }
+
                     Customer newCustomer = new Customer(Convert.ToInt16(parts[0]), parts[1], parts[2], parts[3], Convert.ToDouble(parts[4]), Convert.ToDateTime(parts[5]));
                     List.Add(newCustomer);
                 }
 
                 return true;
-            }else
+            }
+            else
             {
                 return false;
             }
-            
+
         }
 
         public bool UpdateDatabase()
         {
             try
             {
-                string path = @"H:\MaSem2\SE\Project\" + DataBaseName + ".csv";
+                string path = @"c:\Datenbanken\" + DataBaseName + ".csv";
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine(Password);
+                //sb.AppendLine(EncodeWord(Password, true));
 
-                foreach(Customer customer in List)
+                foreach (Customer customer in List)
                 {
-                    string line = customer.CustomerID + ";" + customer.FirstName + ";" + customer.LastName + ";" + customer.EmailAddress + ";" + customer.OpenBalance.ToString() + ";" + customer.LastChange.ToString();
+
+                    string line = customer.CustomerID.ToString() + ";"
+                                + EncodeWord(customer.FirstName, true) + ";"
+                                + EncodeWord(customer.LastName, true) + ";"
+                                + EncodeWord(customer.EmailAddress, true) + ";"
+                                + EncodeWord(customer.OpenBalance.ToString(), true) + ";"
+                                + customer.LastChange.ToString();
+
                     sb.AppendLine(line);
                 }
-                File.WriteAllText(path,sb.ToString());
+                File.WriteAllText(path, sb.ToString());
 
                 return true;
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -146,20 +161,56 @@ namespace ClassLibary
                 List.Add(customer);
                 return true;
 
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
 
         }
 
-        public bool checkTODO()
+        public bool CheckEmail(string email)
         {
-            //TODO
-            return false;
+            if (List.Any(p => p.EmailAddress == email))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
+        public string EncodeWord(string word, bool toEncode)
+        {
+            List<char> right = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                                                'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+                                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+            List<char> wrong = new List<char> { 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+                                                'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y',
+                                                '9', '8', '7', '6', '5', '4', '3', '2', '1', '0' };
 
+            char[] charArr = word.ToCharArray();
+            char[] newCharArr = new char[charArr.Length];
+
+            if (toEncode)
+            {
+                for (int i = 0; i < charArr.Length; i++)
+                {
+                    newCharArr[i] = wrong[right.IndexOf(charArr[i])];
+                }
+
+
+            }
+            else
+            {
+                for (int i = 0; i < charArr.Length; i++)
+                {
+                    newCharArr[i] = right[wrong.IndexOf(charArr[i])];
+                }
+            }
+            return new string(newCharArr);
+        }
 
 
 

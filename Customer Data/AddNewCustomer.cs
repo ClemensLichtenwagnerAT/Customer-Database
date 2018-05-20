@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibary;
 
 namespace Customer_Data
 {
     public partial class AddNewCustomer : Form
     {
+
+        private ListCustomer ListCustomer = new ListCustomer();
         private Customer NewCustomer;
 
-        public AddNewCustomer()
+        public AddNewCustomer(ListCustomer customerlist)
         {
             InitializeComponent();
+            this.ListCustomer = customerlist;
         }
 
         public Customer GetNewCustomer
@@ -31,8 +35,21 @@ namespace Customer_Data
         {
             try
             {
-                NewCustomer = new Customer(Txb_FirstName.Text, Txb_LastName.Text, Txb_EmailAddress.Text, Convert.ToInt32(Txb_MoneyAccount.Text), DateTime.Now);
-                this.Close();
+                NewCustomer = new Customer(Txb_FirstName.Text,
+                    Txb_LastName.Text,
+                    Txb_EmailAddress.Text,
+                    Convert.ToInt32(Txb_MoneyAccount.Text),
+                    DateTime.Now);
+                if (ListCustomer.AddCustomer(NewCustomer) && ListCustomer.UpdateDatabase())
+                {
+                    DialogResult = DialogResult.OK;
+                    MessageBox.Show(GlobalStrings.AddCustomerSuccessful);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(GlobalStrings.FailureAddCustomer_2);
+                }
             }
             catch (Exception ex)
             {
@@ -60,12 +77,12 @@ namespace Customer_Data
                 string firstName = Txb_FirstName.Text;
                 if (firstName == string.Empty)
                 {
-                    this.EP_ErrorMessage.SetError(Txb_FirstName, "Textfield can not be empty");
+                    this.EP_ErrorMessage.SetError(Txb_FirstName, GlobalStrings.FailureInputTxbNames_Empty);
                     e.Cancel = true;
                 }
                 else if (!Char.IsUpper(firstName[0]))
                 {
-                    EP_ErrorMessage.SetError(Txb_FirstName, "First letter must be a capital letter!");
+                    EP_ErrorMessage.SetError(Txb_FirstName, GlobalStrings.FailureInputTxbNames_InvalidFirstLetter);
                     e.Cancel = true;
                 }
                 else
@@ -126,7 +143,7 @@ namespace Customer_Data
                 }
                 if (!isEmailcorrect)
                 {
-                    EP_ErrorMessage.SetError(Txb_EmailAddress, "Incorrect E-mail address!");
+                    EP_ErrorMessage.SetError(Txb_EmailAddress, GlobalStrings.FailureInputTxbEmail);
                     e.Cancel = true;
                 }
                 else
@@ -136,7 +153,7 @@ namespace Customer_Data
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -147,12 +164,12 @@ namespace Customer_Data
                 string lastName = Txb_LastName.Text;
                 if (lastName == string.Empty)
                 {
-                    this.EP_ErrorMessage.SetError(Txb_LastName, "Textfield can not be empty");
+                    this.EP_ErrorMessage.SetError(Txb_LastName, GlobalStrings.FailureInputTxbNames_Empty);
                     e.Cancel = true;
                 }
                 else if (!Char.IsUpper(lastName[0]))
                 {
-                    EP_ErrorMessage.SetError(Txb_LastName, "First letter must be a capital letter!");
+                    EP_ErrorMessage.SetError(Txb_LastName, GlobalStrings.FailureInputTxbNames_InvalidFirstLetter);
                     e.Cancel = true;
                 }
                 else
@@ -162,7 +179,7 @@ namespace Customer_Data
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -170,19 +187,19 @@ namespace Customer_Data
         {
             try
             {
-                ////if (!Double.TryParse(Txb_MoneyAccount.Text, out double money))
-                ////{
-                ////    this.EP_ErrorMessage.SetError(Txb_MoneyAccount, "Invalid characters are included!");
-                ////    e.Cancel = true;
-                ////}
-                ////else
-                ////{
-                ////    EP_ErrorMessage.Clear();
-                ////}
+                if (!Double.TryParse(Txb_MoneyAccount.Text, out double money))
+                {
+                    this.EP_ErrorMessage.SetError(Txb_MoneyAccount, GlobalStrings.FailureTxbAmount);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    EP_ErrorMessage.Clear();
+                }
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 

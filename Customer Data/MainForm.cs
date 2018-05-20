@@ -9,44 +9,68 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
+using ClassLibary;
 
 namespace Customer_Data
 {
     public partial class MainForm : Form
     {
-        private List<Customer> CustomerList = new List<Customer>(); // only for testing
+        private ListCustomer ListCustomer = new ListCustomer();
+        private bool IsDatabaseSelected = false;
 
         public MainForm()
         {
             InitializeComponent();
             DataGridView_CustomerList.Visible = false;
-            Lbl_Customers.Visible = false;
-
         }
 
         private void paymentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Payments dialog = new Payments();
-            dialog.ShowDialog();
+            try
+            {
+                Payments dialog = new Payments();
+                dialog.ShowDialog();
+                //Check if Dialog Result was okey
+                // if yes -> update datagridview and database
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void addCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
-                AddNewCustomer dialog = new AddNewCustomer();
-                dialog.ShowDialog();
-                if (dialog.GetNewCustomer != null)
+                if (IsDatabaseSelected)
                 {
-                    CustomerList.Add(dialog.GetNewCustomer);//nur zum testen...später anbindung an Database von Tobi
-                    // enter the data of the new user in the DataGridView
-                    string[] columnData = new string[] { dialog.GetNewCustomer.FirstName, dialog.GetNewCustomer.LastName, dialog.GetNewCustomer.EmailAddress, dialog.GetNewCustomer.OpenBalance.ToString() + "€", dialog.GetNewCustomer.LastChange.ToString() };
-                    DataGridView_CustomerList.Rows.Add(columnData);
+                    AddNewCustomer dialog = new AddNewCustomer(ListCustomer);
+                    dialog.ShowDialog();
+                    if (dialog.DialogResult == DialogResult.OK)
+                    {
+                        IsDatabaseSelected = true;
+                        // enter the data of the new user in the DataGridView
+                        string[] columnData = new string[] {
+                        dialog.GetNewCustomer.FirstName,
+                        dialog.GetNewCustomer.LastName,
+                        dialog.GetNewCustomer.EmailAddress,
+                        dialog.GetNewCustomer.OpenBalance.ToString() + "€",
+                        dialog.GetNewCustomer.LastChange.ToString() };
+                        ListCustomer.UpdateDatabase();
+                        DataGridView_CustomerList.Rows.Add(columnData);
+                    }
+                    else
+                    {
+                        MessageBox.Show(GlobalStrings.FailureAddCustomer);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show($"Invalid input!");
+                    MessageBox.Show(GlobalStrings.NoDatabaseSelected);
                 }
+
+
             }
             catch (Exception ex)
             {
@@ -57,23 +81,27 @@ namespace Customer_Data
         private void showCustomerListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataGridView_CustomerList.Visible = true;
-            Lbl_Customers.Visible = true;
         }
 
         private void hideCustomerListToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataGridView_CustomerList.Visible = false;
-            Lbl_Customers.Visible = false;
         }
 
         private void addDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
+                DataGridView_CustomerList.ClearSelection();
                 AddDatabase dialog = new AddDatabase();
                 dialog.ShowDialog();
-                // Anbindung an Tobis Datenbank
-                //CreateNewDatabase(dialog.NameDatabase, dialog.Password);
+                if (dialog.DialogResult == DialogResult.OK)
+                {
+                    ListCustomer.LoadDataBase(dialog.NameDatabase, dialog.Password);
+                    IsDatabaseSelected = true;
+                    Lbl_NameDatabase.Text = dialog.NameDatabase;
+                    DataGridView_CustomerList.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -85,58 +113,61 @@ namespace Customer_Data
         {
             try
             {
+                ListCustomer ListCustomer = new ListCustomer();
+                DataGridView_CustomerList.ClearSelection();
                 OpenDatabase dialog = new OpenDatabase();
                 dialog.ShowDialog();
-
-                if (dialog.DialogResult == DialogResult.Cancel)
+                if (dialog.DialogResult == DialogResult.OK)
                 {
-                    MessageBox.Show("Open database aborted1");
+                    IsDatabaseSelected = true;
+                    Lbl_NameDatabase.Text = dialog.GetDataBaseName;
+                    ListCustomer.LoadDataBase(dialog.GetDataBaseName, dialog.GetPasswordforDatabase);
+                    foreach (var customer in ListCustomer.List)
+                    {
+                        string[] columnData = new string[] { customer.FirstName,
+                        customer.LastName,
+                        customer.EmailAddress,
+                        customer.OpenBalance.ToString() + "€",
+                        customer.LastChange.ToString() };
+                        DataGridView_CustomerList.Rows.Add(columnData);
+                    }
                 }
-                else if (dialog.DialogResult == DialogResult.OK)
-                {
-                    string nameDatabaseToOpen = dialog.GetDataBaseName;
-                    string password = dialog.GetPasswordforDatabase;
-                }
-                // Tobi - Datenbank Zugriff
-                // Tobi braucht nur den Filenamen und das Password der Datenbank
-                // Liste mit Customer aus Datenbank laden und in DataGridView anzeigen
-                //// String Array mit CustomerDaten
-                ////string[] columnData = new string[] {dialog.GetNewCustomer.FirstName, dialog.GetNewCustomer.LastName, dialog.GetNewCustomer.EmailAddress, dialog.GetNewCustomer.OpenBalance.ToString() + "€", dialog.GetNewCustomer.LastChange.ToString() };
-                ////DataGridView_CustomerList.Rows.Add(columnData);
-                //DataGridView_CustomerList.Visible = true;
-                //Lbl_Customers.Visible = true;
 
-                // Test ****************************
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading the database! " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
-
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             toolStripComboBox_SetLanguage.Items.Add("English");
             toolStripComboBox_SetLanguage.Items.Add("German");
-            toolStripComboBox_SetLanguage.SelectedIndex = 0;
             toolStripComboBox_SetLanguage.DropDownStyle = ComboBoxStyle.DropDownList;
+            Properties.Settings.Default.Reload();
+            toolStripComboBox_SetLanguage.SelectedIndex = Properties.Settings.Default.Language;
         }
 
         private void toolStripComboBox_SetLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (toolStripComboBox_SetLanguage.SelectedIndex == 0)
+            if (toolStripComboBox_SetLanguage.SelectedIndex == 0) // English
             {
                 System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en");
             }
-            else if (toolStripComboBox_SetLanguage.SelectedIndex == 1)
+            else if (toolStripComboBox_SetLanguage.SelectedIndex == 1) // German
             {
                 System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("de");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("de");
             }
-            // Change Language of the whole Form
+            Properties.Settings.Default.Language = toolStripComboBox_SetLanguage.SelectedIndex;
+            Properties.Settings.Default.Save();
+            // Change language of the whole programm
             this.Text = GlobalStrings.FormCustomerDatabase;
+            Lbl_NameDatabase.Text = GlobalStrings.Lbl_DatabaseName_Default;
+            Lbl_Database.Text = GlobalStrings.Lbl_Database;
             databaseToolStripMenuItem.Text = GlobalStrings.ToolStripeMenüDatabase;
             addDatabaseToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemaAddDatabase;
             openDatabaseToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemaOpenDatabase;
@@ -145,10 +176,19 @@ namespace Customer_Data
             hideCustomerListToolStripMenuItem1.Text = GlobalStrings.ToolStripMenuItemHideCustomerList;
             paymentsToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemPayments;
             languageToolStripMenuItem.Text = GlobalStrings.ToolStripLanguage;
+            this.Column_FirstName.HeaderText = GlobalStrings.DataGridView_Column_FirstNameText;
+            this.Column_LastName.HeaderText = GlobalStrings.DataGridView_Column_LastNameText;
+            this.Column_EmailAddress.HeaderText = GlobalStrings.DataGridView_Column_EmailText;
+            this.Column_OpenBalance.HeaderText = GlobalStrings.DataGridView_Column_OpenBalanceText;
+            this.Column_LastChange.HeaderText = GlobalStrings.DataGridView_Column_LastChangeText;
+            //Name der gewählten Datenbank (Label über dem Datagridview) gehört noch geändert.
 
-            //DataGridView_CustomerList.ColumnCount = 5;
         }
 
-
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // safe the last user settings
+            Properties.Settings.Default.Save();
+        }
     }
 }

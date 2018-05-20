@@ -195,4 +195,70 @@
   <data name="ToolStripMenuItemShowCustomerList" xml:space="preserve">
     <value>Show Customer List</value>
   </data>
+  <data name="BtnPayIn" xml:space="preserve">
+    <value>Pay in</value>
+  </data>
+  <data name="BtnPayOut" xml:space="preserve">
+    <value>Pay out</value>
+  </data>
+  <data name="DataGridView_Column_EmailText" xml:space="preserve">
+    <value>E-mail address</value>
+  </data>
+  <data name="DataGridView_Column_FirstNameText" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="DataGridView_Column_LastChangeText" xml:space="preserve">
+    <value>Last change</value>
+  </data>
+  <data name="DataGridView_Column_LastNameText" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="DataGridView_Column_OpenBalanceText" xml:space="preserve">
+    <value>Credit</value>
+  </data>
+  <data name="FailureAddCustomer" xml:space="preserve">
+    <value>No customer was added!</value>
+  </data>
+  <data name="FailureInputTxbEmail" xml:space="preserve">
+    <value>Incorrect E-mail address!</value>
+  </data>
+  <data name="FailureInputTxbNames_Empty" xml:space="preserve">
+    <value>Textfield can not be empty!</value>
+  </data>
+  <data name="FailureInputTxbNames_InvalidFirstLetter" xml:space="preserve">
+    <value>First letter must be a capital letter!</value>
+  </data>
+  <data name="FailureOpenDatabaseMessageBox" xml:space="preserve">
+    <value>Error loading the selected database!</value>
+  </data>
+  <data name="FailureTxbAmount" xml:space="preserve">
+    <value>Invalid characters are included!</value>
+  </data>
+  <data name="FormPayments" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="LblAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AddCustomerSuccessful" xml:space="preserve">
+    <value>Customer added successfully!</value>
+  </data>
+  <data name="DBCreatedSuccesfully" xml:space="preserve">
+    <value>Database created successfully!</value>
+  </data>
+  <data name="FailureCreatingDatabase" xml:space="preserve">
+    <value>Database could not be created!</value>
+  </data>
+  <data name="FailureOpenDatabase" xml:space="preserve">
+    <value>Database could not be opened! Check password!</value>
+  </data>
+  <data name="Lbl_Database" xml:space="preserve">
+    <value>Database:</value>
+  </data>
+  <data name="Lbl_DatabaseName_Default" xml:space="preserve">
+    <value>No database selected.</value>
+  </data>
+  <data name="NoDatabaseSelected" xml:space="preserve">
+    <value>In order to be able to add a customer, a database must first be selected!</value>
+  </data>
 </root>
