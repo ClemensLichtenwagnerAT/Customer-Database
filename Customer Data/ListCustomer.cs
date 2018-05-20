@@ -14,6 +14,7 @@ namespace Customer_Data
     /// </summary>
     public class ListCustomer
     {
+        //Kommentar
         private List<Customer> _List;
         private string _DataBaseName;
         private string _Password;
