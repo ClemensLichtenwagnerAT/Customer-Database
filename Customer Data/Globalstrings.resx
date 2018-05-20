@@ -261,4 +261,7 @@
   <data name="NoDatabaseSelected" xml:space="preserve">
     <value>In order to be able to add a customer, a database must first be selected!</value>
   </data>
+  <data name="FailureAddCustomer_2" xml:space="preserve">
+    <value>Customer could not be added!</value>
+  </data>
 </root>
