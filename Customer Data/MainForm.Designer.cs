@@ -39,6 +39,7 @@
             this.hideCustomerListToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox_SetLanguage = new System.Windows.Forms.ToolStripComboBox();
             this.DataGridView_CustomerList = new System.Windows.Forms.DataGridView();
@@ -113,6 +114,7 @@
             // 
             this.extrasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.paymentsToolStripMenuItem,
+            this.editCustomerToolStripMenuItem,
             this.languageToolStripMenuItem});
             this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
             resources.ApplyResources(this.extrasToolStripMenuItem, "extrasToolStripMenuItem");
@@ -122,6 +124,12 @@
             this.paymentsToolStripMenuItem.Name = "paymentsToolStripMenuItem";
             resources.ApplyResources(this.paymentsToolStripMenuItem, "paymentsToolStripMenuItem");
             this.paymentsToolStripMenuItem.Click += new System.EventHandler(this.paymentsToolStripMenuItem_Click);
+            // 
+            // editCustomerToolStripMenuItem
+            // 
+            this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
+            resources.ApplyResources(this.editCustomerToolStripMenuItem, "editCustomerToolStripMenuItem");
+            this.editCustomerToolStripMenuItem.Click += new System.EventHandler(this.editCustomerToolStripMenuItem_Click);
             // 
             // languageToolStripMenuItem
             // 
@@ -229,6 +237,7 @@
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox_SetLanguage;
         private System.Windows.Forms.Label Lbl_Database;
         private System.Windows.Forms.Label Lbl_NameDatabase;
+        private System.Windows.Forms.ToolStripMenuItem editCustomerToolStripMenuItem;
     }
 }
 

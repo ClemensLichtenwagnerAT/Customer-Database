@@ -133,6 +133,15 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This E-mail address is already taken! ähnelt.
+        /// </summary>
+        internal static string CheckifEmailunique {
+            get {
+                return ResourceManager.GetString("CheckifEmailunique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die FirstName ähnelt.
         /// </summary>
         internal static string DataGridFirstName {
@@ -192,6 +201,15 @@ namespace Customer_Data {
         internal static string DBCreatedSuccesfully {
             get {
                 return ResourceManager.GetString("DBCreatedSuccesfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Customer ähnelt.
+        /// </summary>
+        internal static string editCustomerToolStripMenuItem {
+            get {
+                return ResourceManager.GetString("editCustomerToolStripMenuItem", resourceCulture);
             }
         }
         

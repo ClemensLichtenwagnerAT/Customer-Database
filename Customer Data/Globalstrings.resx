@@ -264,4 +264,10 @@
   <data name="FailureAddCustomer_2" xml:space="preserve">
     <value>Customer could not be added!</value>
   </data>
+  <data name="editCustomerToolStripMenuItem" xml:space="preserve">
+    <value>Edit Customer</value>
+  </data>
+  <data name="CheckifEmailunique" xml:space="preserve">
+    <value>This E-mail address is already taken!</value>
+  </data>
 </root>

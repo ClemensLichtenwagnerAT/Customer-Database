@@ -267,4 +267,10 @@
   <data name="FailureAddCustomer_2" xml:space="preserve">
     <value>Kunde konnte nicht hinzugefügt werden!</value>
   </data>
+  <data name="editCustomerToolStripMenuItem" xml:space="preserve">
+    <value>Kunden bearbeiten</value>
+  </data>
+  <data name="CheckifEmailunique" xml:space="preserve">
+    <value>Diese E-mail Adresse ist bereits vergeben!</value>
+  </data>
 </root>

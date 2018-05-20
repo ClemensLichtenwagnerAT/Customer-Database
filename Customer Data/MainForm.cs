@@ -30,13 +30,22 @@ namespace Customer_Data
             {
                 Payments dialog = new Payments();
                 dialog.ShowDialog();
-                //Check if Dialog Result was okey
-                // if yes -> update datagridview and database
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = DataGridView_CustomerList.SelectedRows[0];
+            string zelle1 = (string)row.Cells[0].Value;
+            string zelle2 = (string)row.Cells[1].Value;
+            string zelle3 = (string)row.Cells[2].Value;
+            string zelle4 = (string)row.Cells[3].Value;
+            string zelle5 = (string)row.Cells[4].Value;
         }
 
         private void addCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -76,26 +85,16 @@ namespace Customer_Data
             }
         }
 
-        private void showCustomerListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DataGridView_CustomerList.Visible = true;
-        }
-
-        private void hideCustomerListToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            DataGridView_CustomerList.Visible = false;
-        }
-
         private void addDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                DataGridView_CustomerList.ClearSelection();
+                DataGridView_CustomerList.Rows.Clear();
                 AddDatabase dialog = new AddDatabase();
                 dialog.ShowDialog();
                 if (dialog.DialogResult == DialogResult.OK)
                 {
-                    ListCustomer.LoadDataBase(dialog.NameDatabase + ".csv", dialog.Password);
+                    //ListCustomer.LoadDataBase(dialog.NameDatabase + ".csv", dialog.Password);
                     IsDatabaseSelected = true;
                     Lbl_NameDatabase.Text = dialog.NameDatabase;
                     DataGridView_CustomerList.Visible = true;
@@ -111,15 +110,15 @@ namespace Customer_Data
         {
             try
             {
-                ListCustomer ListCustomer = new ListCustomer();
-                DataGridView_CustomerList.ClearSelection();
+                // delete all entries from the datagridview
+                DataGridView_CustomerList.Rows.Clear();
+                ListCustomer.List.Clear();
                 OpenDatabase dialog = new OpenDatabase(ListCustomer);
                 dialog.ShowDialog();
                 if (dialog.DialogResult == DialogResult.OK)
                 {
                     IsDatabaseSelected = true;
                     Lbl_NameDatabase.Text = dialog.GetDataBaseName;
-                    ListCustomer.LoadDataBase(dialog.GetDataBaseName, dialog.GetPasswordforDatabase);
                     foreach (var customer in ListCustomer.List)
                     {
                         string[] columnData = new string[] { customer.FirstName,
@@ -129,6 +128,7 @@ namespace Customer_Data
                         customer.LastChange.ToString() };
                         DataGridView_CustomerList.Rows.Add(columnData);
                     }
+                    DataGridView_CustomerList.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -177,8 +177,19 @@ namespace Customer_Data
             this.Column_EmailAddress.HeaderText = GlobalStrings.DataGridView_Column_EmailText;
             this.Column_OpenBalance.HeaderText = GlobalStrings.DataGridView_Column_OpenBalanceText;
             this.Column_LastChange.HeaderText = GlobalStrings.DataGridView_Column_LastChangeText;
+            editCustomerToolStripMenuItem.Text = GlobalStrings.editCustomerToolStripMenuItem;
             //Name der gewählten Datenbank (Label über dem Datagridview) gehört noch geändert.
 
+        }
+
+        private void showCustomerListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridView_CustomerList.Visible = true;
+        }
+
+        private void hideCustomerListToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataGridView_CustomerList.Visible = false;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -186,5 +197,7 @@ namespace Customer_Data
             // safe the last user settings
             Properties.Settings.Default.Save();
         }
+
+        
     }
 }

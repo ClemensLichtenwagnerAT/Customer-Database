@@ -40,16 +40,24 @@ namespace Customer_Data
                     Txb_EmailAddress.Text,
                     Convert.ToInt32(Txb_MoneyAccount.Text),
                     DateTime.Now);
-                if (ListCustomer.AddCustomer(NewCustomer) && ListCustomer.UpdateDatabase())
+                if (ListCustomer.CheckEmail(Txb_EmailAddress.Text))
                 {
-                    DialogResult = DialogResult.OK;
-                    MessageBox.Show(GlobalStrings.AddCustomerSuccessful);
-                    this.Close();
+                    if (ListCustomer.AddCustomer(NewCustomer) && ListCustomer.UpdateDatabase())
+                    {
+                        DialogResult = DialogResult.OK;
+                        MessageBox.Show(GlobalStrings.AddCustomerSuccessful);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(GlobalStrings.FailureAddCustomer_2);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(GlobalStrings.FailureAddCustomer_2);
+                    MessageBox.Show(GlobalStrings.CheckifEmailunique);
                 }
+
             }
             catch (Exception ex)
             {

@@ -124,17 +124,68 @@
   <data name="menuStrip1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 9.75pt</value>
   </data>
+  <data name="addDatabaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="addDatabaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Add Database</value>
+  </data>
+  <data name="openDatabaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="openDatabaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open Database</value>
+  </data>
   <data name="dateiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 20</value>
   </data>
   <data name="dateiToolStripMenuItem.Text" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="addCustomerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="addCustomerToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Add Customer</value>
+  </data>
+  <data name="showCustomerListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="showCustomerListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show Customer List</value>
+  </data>
+  <data name="hideCustomerListToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="hideCustomerListToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Hide Customer List</value>
+  </data>
   <data name="databaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 20</value>
   </data>
   <data name="databaseToolStripMenuItem.Text" xml:space="preserve">
     <value>Database</value>
+  </data>
+  <data name="paymentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="paymentsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Payments</value>
+  </data>
+  <data name="editCustomerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="editCustomerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit customer</value>
+  </data>
+  <data name="toolStripComboBox_SetLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="languageToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="extrasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 20</value>
@@ -170,87 +221,6 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="addDatabaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="addDatabaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>Add Database</value>
-  </data>
-  <data name="openDatabaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="openDatabaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>Open Database</value>
-  </data>
-  <data name="addCustomerToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
-  </data>
-  <data name="addCustomerToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Add Customer</value>
-  </data>
-  <data name="showCustomerListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
-  </data>
-  <data name="showCustomerListToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show Customer List</value>
-  </data>
-  <data name="hideCustomerListToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
-  </data>
-  <data name="hideCustomerListToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Hide Customer List</value>
-  </data>
-  <data name="paymentsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="paymentsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Payments</value>
-  </data>
-  <data name="languageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="languageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="toolStripComboBox_SetLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
-  </data>
-  <metadata name="Column_FirstName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column_LastName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column_EmailAddress.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column_OpenBalance.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column_LastChange.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="DataGridView_CustomerList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 72</value>
-  </data>
-  <data name="DataGridView_CustomerList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>730, 443</value>
-  </data>
-  <data name="DataGridView_CustomerList.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;DataGridView_CustomerList.Name" xml:space="preserve">
-    <value>DataGridView_CustomerList</value>
-  </data>
-  <data name="&gt;&gt;DataGridView_CustomerList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DataGridView_CustomerList.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;DataGridView_CustomerList.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <metadata name="Column_FirstName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -296,6 +266,27 @@
   </data>
   <data name="Column_LastChange.Width" type="System.Int32, mscorlib">
     <value>150</value>
+  </data>
+  <data name="DataGridView_CustomerList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 72</value>
+  </data>
+  <data name="DataGridView_CustomerList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>730, 443</value>
+  </data>
+  <data name="DataGridView_CustomerList.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;DataGridView_CustomerList.Name" xml:space="preserve">
+    <value>DataGridView_CustomerList</value>
+  </data>
+  <data name="&gt;&gt;DataGridView_CustomerList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridView_CustomerList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DataGridView_CustomerList.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Lbl_Database.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -430,6 +421,12 @@
     <value>paymentsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;paymentsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editCustomerToolStripMenuItem.Name" xml:space="preserve">
+    <value>editCustomerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;editCustomerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;languageToolStripMenuItem.Name" xml:space="preserve">
