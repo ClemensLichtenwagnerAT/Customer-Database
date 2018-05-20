@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibary;
+using Customer_Data;
 
 namespace Customer_Data
 {
@@ -151,7 +151,7 @@ namespace Customer_Data
                     EP_ErrorMessage.Clear();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -177,7 +177,7 @@ namespace Customer_Data
                     this.EP_ErrorMessage.Clear();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -197,7 +197,7 @@ namespace Customer_Data
                     EP_ErrorMessage.Clear();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
-using ClassLibary;
+using Customer_Data;
 
 namespace Customer_Data
 {
