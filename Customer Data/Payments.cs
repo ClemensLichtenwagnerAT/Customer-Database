@@ -47,7 +47,7 @@ namespace Customer_Data
                 this._Amount = Convert.ToInt32(Txb_Amount.Text);
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -60,7 +60,7 @@ namespace Customer_Data
                 DialogResult = DialogResult.Cancel;
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show(ex.Message);
             }

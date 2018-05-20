@@ -90,6 +90,7 @@ namespace Customer_Data
 
         private void addDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             try
             {
                 DataGridView_CustomerList.ClearSelection();

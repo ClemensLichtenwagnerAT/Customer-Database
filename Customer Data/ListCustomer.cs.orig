@@ -75,10 +75,17 @@ namespace Customer_Data
         /// <returns></returns>
         public bool CreateNewDataBase(string name, string password)
         {
+<<<<<<< HEAD
             string path = @"c:\Datenbanken\" + name + ".csv";
             if (!File.Exists(path))
             {
+                File.WriteAllText(path, EncodeWord(password, true));
+=======
+            string path = @"C:\Users\Asus\Source\Repos\" + name+".csv";
+            if(!File.Exists(path))
+            {
                 File.WriteAllText(path, EncodeWord(password,true));
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
                 return true;
             }
             else
@@ -88,12 +95,22 @@ namespace Customer_Data
         }
 
         public bool LoadDataBase(string name, string password)
+<<<<<<< HEAD
         {
             string path = @"c:\Datenbanken\" + name;
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException();
+            }
+            else if (File.ReadLines(path).First().Equals(EncodeWord(password, true)))
+=======
+        {          
+            string path = @"C:\Users\Asus\Source\Repos\" + name + ".csv";
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException();
             }else if(File.ReadLines(path).First().Equals(EncodeWord(password,true)))
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
             {
                 DataBaseName = name;
                 Password = password;
@@ -104,9 +121,15 @@ namespace Customer_Data
                 {
                     string[] parts = line.Split(';');
 
+<<<<<<< HEAD
+                    for (int i = 1; i < parts.Length - 1; i++)
+                    {
+                        parts[i] = EncodeWord(parts[i], false);
+=======
                     for(int i = 1; i < parts.Length - 1; i++)
                     {
                         parts[i] = EncodeWord(parts[i],false);
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
                     }
 
                     Customer newCustomer = new Customer(Convert.ToInt16(parts[0]), parts[1], parts[2], parts[3], Convert.ToDouble(parts[4]), Convert.ToDateTime(parts[5]));
@@ -126,18 +149,33 @@ namespace Customer_Data
         {
             try
             {
+<<<<<<< HEAD
                 string path = @"c:\Datenbanken\" + DataBaseName + ".csv";
                 StringBuilder sb = new StringBuilder();
+                //sb.AppendLine(EncodeWord(Password, true));
+=======
+                string path = @"C:\Users\Asus\Source\Repos\" + DataBaseName + ".csv";
+                StringBuilder sb = new StringBuilder();
                 sb.AppendLine(EncodeWord(Password,true));
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
 
                 foreach (Customer customer in List)
                 {
+<<<<<<< HEAD
+
+                    string line = customer.CustomerID.ToString() + ";"
+                                + EncodeWord(customer.FirstName, true) + ";"
+                                + EncodeWord(customer.LastName, true) + ";"
+                                + EncodeWord(customer.EmailAddress, true) + ";"
+                                + EncodeWord(customer.OpenBalance.ToString(), true) + ";"
+=======
                     
                     string line = customer.CustomerID.ToString() + ";" 
                                 + EncodeWord(customer.FirstName,true) + ";" 
                                 + EncodeWord(customer.LastName,true) + ";" 
                                 + EncodeWord(customer.EmailAddress,true) + ";" 
                                 + EncodeWord(customer.OpenBalance.ToString(), true) + ";" 
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
                                 + customer.LastChange.ToString();
 
                     sb.AppendLine(line);
@@ -170,15 +208,18 @@ namespace Customer_Data
 
         public bool CheckEmail(string email)
         {
+<<<<<<< HEAD
+            if (List.Any(p => p.EmailAddress == email))
+            {
+                return false;
+            }
+            else
+=======
             if(List.Any(p => p.EmailAddress == email))
             {
                 return false;
             }else
-            {
-                return true;
-            }
-            }
-            else
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
             {
                 return true;
             }
@@ -195,6 +236,7 @@ namespace Customer_Data
 
             char[] charArr = word.ToCharArray();
             char[] newCharArr = new char[charArr.Length];
+<<<<<<< HEAD
 
             if (toEncode)
             {
@@ -202,18 +244,8 @@ namespace Customer_Data
                 {
                     newCharArr[i] = wrong[right.IndexOf(charArr[i])];
                 }
-
-        public string EncodeWord(string word, bool toEncode)
-        {
-            List<char> right = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                                                'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-            List<char> wrong = new List<char> { 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-                                                'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y',
-                                                '9', '8', '7', '6', '5', '4', '3', '2', '1', '0' };
-
-            char[] charArr = word.ToCharArray();
-            char[] newCharArr = new char[charArr.Length];
+=======
+>>>>>>> ff997cb9d1ead1a98f65dd8378f896c9a746995f
 
             if(toEncode)
             {
@@ -224,6 +256,17 @@ namespace Customer_Data
                 
 
             }else
+            {
+                for (int i = 0; i < charArr.Length; i++)
+                {
+                    newCharArr[i] = right[wrong.IndexOf(charArr[i])];
+                }
+            }
+            return new string(newCharArr);
+        }
+
+            }
+            else
             {
                 for (int i = 0; i < charArr.Length; i++)
                 {
