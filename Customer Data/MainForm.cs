@@ -69,8 +69,6 @@ namespace Customer_Data
                 {
                     MessageBox.Show(GlobalStrings.NoDatabaseSelected);
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -90,7 +88,6 @@ namespace Customer_Data
 
         private void addDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             try
             {
                 DataGridView_CustomerList.ClearSelection();
@@ -98,7 +95,7 @@ namespace Customer_Data
                 dialog.ShowDialog();
                 if (dialog.DialogResult == DialogResult.OK)
                 {
-                    ListCustomer.LoadDataBase(dialog.NameDatabase, dialog.Password);
+                    ListCustomer.LoadDataBase(dialog.NameDatabase + ".csv", dialog.Password);
                     IsDatabaseSelected = true;
                     Lbl_NameDatabase.Text = dialog.NameDatabase;
                     DataGridView_CustomerList.Visible = true;
@@ -116,7 +113,7 @@ namespace Customer_Data
             {
                 ListCustomer ListCustomer = new ListCustomer();
                 DataGridView_CustomerList.ClearSelection();
-                OpenDatabase dialog = new OpenDatabase();
+                OpenDatabase dialog = new OpenDatabase(ListCustomer);
                 dialog.ShowDialog();
                 if (dialog.DialogResult == DialogResult.OK)
                 {
@@ -133,8 +130,6 @@ namespace Customer_Data
                         DataGridView_CustomerList.Rows.Add(columnData);
                     }
                 }
-
-
             }
             catch (Exception ex)
             {

@@ -75,7 +75,7 @@ namespace Customer_Data
         /// <returns></returns>
         public bool CreateNewDataBase(string name, string password)
         {
-            string path = @"c:\Datenbanken\" + name + ".csv";
+            string path = @"C:\Datenbanken\" + name + ".csv";
             if (!File.Exists(path))
             {
                 File.WriteAllText(path, EncodeWord(password, true));
@@ -89,7 +89,7 @@ namespace Customer_Data
 
         public bool LoadDataBase(string name, string password)
         {
-            string path = @"c:\Datenbanken\" + name;
+            string path = @"C:\Datenbanken\" + name;
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException();
@@ -185,10 +185,10 @@ namespace Customer_Data
         {
             List<char> right = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                                                 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+                                                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'};
             List<char> wrong = new List<char> { 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
                                                 'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y',
-                                                '9', '8', '7', '6', '5', '4', '3', '2', '1', '0' };
+                                                '9', '8', '7', '6', '5', '4', '3', '2', '1', '0', '.' };
 
             char[] charArr = word.ToCharArray();
             char[] newCharArr = new char[charArr.Length];
@@ -199,8 +199,6 @@ namespace Customer_Data
                 {
                     newCharArr[i] = wrong[right.IndexOf(charArr[i])];
                 }
-
-
             }
             else
             {

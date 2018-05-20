@@ -15,9 +15,10 @@ namespace Customer_Data
     {
         private ListCustomer CustomerList = new ListCustomer();
 
-        public OpenDatabase()
+        public OpenDatabase(ListCustomer customerList)
         {
             InitializeComponent();
+            CustomerList = customerList;
         }
 
         public string GetDataBaseName
