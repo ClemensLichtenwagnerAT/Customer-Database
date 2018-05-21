@@ -43,13 +43,13 @@
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox_SetLanguage = new System.Windows.Forms.ToolStripComboBox();
             this.DataGridView_CustomerList = new System.Windows.Forms.DataGridView();
+            this.Lbl_Database = new System.Windows.Forms.Label();
+            this.Lbl_NameDatabase = new System.Windows.Forms.Label();
             this.Column_FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_EmailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_OpenBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_LastChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lbl_Database = new System.Windows.Forms.Label();
-            this.Lbl_NameDatabase = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_CustomerList)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +156,16 @@
             resources.ApplyResources(this.DataGridView_CustomerList, "DataGridView_CustomerList");
             this.DataGridView_CustomerList.Name = "DataGridView_CustomerList";
             // 
+            // Lbl_Database
+            // 
+            resources.ApplyResources(this.Lbl_Database, "Lbl_Database");
+            this.Lbl_Database.Name = "Lbl_Database";
+            // 
+            // Lbl_NameDatabase
+            // 
+            resources.ApplyResources(this.Lbl_NameDatabase, "Lbl_NameDatabase");
+            this.Lbl_NameDatabase.Name = "Lbl_NameDatabase";
+            // 
             // Column_FirstName
             // 
             this.Column_FirstName.Frozen = true;
@@ -186,16 +196,6 @@
             resources.ApplyResources(this.Column_LastChange, "Column_LastChange");
             this.Column_LastChange.Name = "Column_LastChange";
             this.Column_LastChange.ReadOnly = true;
-            // 
-            // Lbl_Database
-            // 
-            resources.ApplyResources(this.Lbl_Database, "Lbl_Database");
-            this.Lbl_Database.Name = "Lbl_Database";
-            // 
-            // Lbl_NameDatabase
-            // 
-            resources.ApplyResources(this.Lbl_NameDatabase, "Lbl_NameDatabase");
-            this.Lbl_NameDatabase.Name = "Lbl_NameDatabase";
             // 
             // MainForm
             // 
@@ -228,16 +228,16 @@
         private System.Windows.Forms.ToolStripMenuItem openDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showCustomerListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideCustomerListToolStripMenuItem1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_LastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_EmailAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_OpenBalance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column_LastChange;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox_SetLanguage;
         private System.Windows.Forms.Label Lbl_Database;
         private System.Windows.Forms.Label Lbl_NameDatabase;
         private System.Windows.Forms.ToolStripMenuItem editCustomerToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_EmailAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_OpenBalance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column_LastChange;
     }
 }
 

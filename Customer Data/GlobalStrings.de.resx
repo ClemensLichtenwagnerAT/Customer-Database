@@ -270,7 +270,28 @@
   <data name="editCustomerToolStripMenuItem" xml:space="preserve">
     <value>Kunden bearbeiten</value>
   </data>
+  <data name="Btn_SaveChanges" xml:space="preserve">
+    <value>Änderungen speichern</value>
+  </data>
+  <data name="ChangeCustomerSuccessfully" xml:space="preserve">
+    <value>Kundendaten erfolgreich geändert!</value>
+  </data>
   <data name="CheckifEmailunique" xml:space="preserve">
     <value>Diese E-mail Adresse ist bereits vergeben!</value>
+  </data>
+  <data name="CustomerDataNoChange" xml:space="preserve">
+    <value>Kundendaten wurden nicht geändert!</value>
+  </data>
+  <data name="FailureChangeEmail" xml:space="preserve">
+    <value>E mail Addresse ist bereits vergeben!</value>
+  </data>
+  <data name="FormEditCustomer" xml:space="preserve">
+    <value>Kunden bearbeiten</value>
+  </data>
+  <data name="NoCustomerInThisDatabase" xml:space="preserve">
+    <value>Es ist noch kein Kunde in dieser Datenbank enthalten!</value>
+  </data>
+  <data name="NoRowSelected" xml:space="preserve">
+    <value>Es muss vorher ein Kunde aus der Liste markiert werden!</value>
   </data>
 </root>

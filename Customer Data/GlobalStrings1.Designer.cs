@@ -88,6 +88,15 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Save Changes ähnelt.
+        /// </summary>
+        internal static string Btn_SaveChanges {
+            get {
+                return ResourceManager.GetString("Btn_SaveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Load Database ähnelt.
         /// </summary>
         internal static string BtnOpenChoosenDatabase {
@@ -133,11 +142,29 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Customer data changed successfully! ähnelt.
+        /// </summary>
+        internal static string ChangeCustomerSuccessfully {
+            get {
+                return ResourceManager.GetString("ChangeCustomerSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die This E-mail address is already taken! ähnelt.
         /// </summary>
         internal static string CheckifEmailunique {
             get {
                 return ResourceManager.GetString("CheckifEmailunique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Customer data has not been changed! ähnelt.
+        /// </summary>
+        internal static string CustomerDataNoChange {
+            get {
+                return ResourceManager.GetString("CustomerDataNoChange", resourceCulture);
             }
         }
         
@@ -232,6 +259,15 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die This e-mail-adress is already in use! ähnelt.
+        /// </summary>
+        internal static string FailureChangeEmail {
+            get {
+                return ResourceManager.GetString("FailureChangeEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Database could not be created! ähnelt.
         /// </summary>
         internal static string FailureCreatingDatabase {
@@ -318,6 +354,15 @@ namespace Customer_Data {
         internal static string FormCustomerDatabase {
             get {
                 return ResourceManager.GetString("FormCustomerDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit Customer ähnelt.
+        /// </summary>
+        internal static string FormEditCustomer {
+            get {
+                return ResourceManager.GetString("FormEditCustomer", resourceCulture);
             }
         }
         
@@ -439,11 +484,29 @@ namespace Customer_Data {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die There is no customer in this database yet! ähnelt.
+        /// </summary>
+        internal static string NoCustomerInThisDatabase {
+            get {
+                return ResourceManager.GetString("NoCustomerInThisDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die In order to be able to add a customer, a database must first be selected! ähnelt.
         /// </summary>
         internal static string NoDatabaseSelected {
             get {
                 return ResourceManager.GetString("NoDatabaseSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You must first mark a customer from the list ähnelt.
+        /// </summary>
+        internal static string NoRowSelected {
+            get {
+                return ResourceManager.GetString("NoRowSelected", resourceCulture);
             }
         }
         

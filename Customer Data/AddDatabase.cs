@@ -9,15 +9,16 @@ namespace Customer_Data
 {
     public partial class AddDatabase : Form
     {
-        private ListCustomer listCustomer = new ListCustomer();
+        private ListCustomer CustomerList = new ListCustomer();
 
-        public AddDatabase()
+        public AddDatabase(ListCustomer customerlist)
         {
+            this.CustomerList = customerlist;
             InitializeComponent();
         }
 
         #region Properties
-        
+
         public string NameDatabase
         {
             get
@@ -41,8 +42,9 @@ namespace Customer_Data
             try
             {
                 //Check if database was successfully created
-                if (listCustomer.CreateNewDataBase(Txb_NameNewDatabase.Text, Txb_Password.Text))
+                if (CustomerList.CreateNewDataBase(Txb_NameNewDatabase.Text, Txb_Password.Text))
                 {
+                    CustomerList.LoadDataBase(Txb_NameNewDatabase.Text + ".csv", Txb_Password.Text);
                     DialogResult = DialogResult.OK;
                     MessageBox.Show(GlobalStrings.DBCreatedSuccesfully);
                     this.Close();

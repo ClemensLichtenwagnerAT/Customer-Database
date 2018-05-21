@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows.Forms;
 using static System.Windows.Forms.ListViewItem;
@@ -28,9 +23,39 @@ namespace Customer_Data
         {
             try
             {
-                Payments dialog = new Payments();
-                dialog.ShowDialog();
-
+                int indexSelectedCustomer = 0;
+                // check if line has been selected
+                if (DataGridView_CustomerList.CurrentRow != null)
+                {
+                    indexSelectedCustomer = DataGridView_CustomerList.CurrentRow.Index;
+                    if (DataGridView_CustomerList.Rows[indexSelectedCustomer].Cells[0].Value != null)
+                    {
+                        Payments dialog = new Payments(ListCustomer, indexSelectedCustomer);
+                        dialog.ShowDialog();
+                        if (dialog.DialogResult == DialogResult.OK)
+                        {
+                            //Clear the datagridview
+                            DataGridView_CustomerList.Rows.Clear();
+                            foreach (var customer in ListCustomer.List)
+                            {
+                                string[] columnData = new string[] { customer.FirstName,
+                        customer.LastName,
+                        customer.EmailAddress,
+                        customer.OpenBalance.ToString() + "€",
+                        customer.LastChange.ToString() };
+                                DataGridView_CustomerList.Rows.Add(columnData);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(GlobalStrings.NoCustomerInThisDatabase);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(GlobalStrings.NoRowSelected);
+                }
             }
             catch (Exception ex)
             {
@@ -40,12 +65,46 @@ namespace Customer_Data
 
         private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = DataGridView_CustomerList.SelectedRows[0];
-            string zelle1 = (string)row.Cells[0].Value;
-            string zelle2 = (string)row.Cells[1].Value;
-            string zelle3 = (string)row.Cells[2].Value;
-            string zelle4 = (string)row.Cells[3].Value;
-            string zelle5 = (string)row.Cells[4].Value;
+            try
+            {
+                int indexSelectedCustomer = 0;
+                // check if line has been selected
+                if (DataGridView_CustomerList.CurrentRow != null)
+                {
+                    indexSelectedCustomer = DataGridView_CustomerList.CurrentRow.Index;
+                    if (DataGridView_CustomerList.Rows[indexSelectedCustomer].Cells[0].Value != null)
+                    {
+                        EditCustomer dialog = new EditCustomer(ListCustomer, indexSelectedCustomer);
+                        dialog.ShowDialog();
+                        if (dialog.DialogResult == DialogResult.OK)
+                        {
+                            //Clear the datagridview
+                            DataGridView_CustomerList.Rows.Clear();
+                            foreach (var customer in ListCustomer.List)
+                            {
+                                string[] columnData = new string[] { customer.FirstName,
+                        customer.LastName,
+                        customer.EmailAddress,
+                        customer.OpenBalance.ToString() + "€",
+                        customer.LastChange.ToString() };
+                                DataGridView_CustomerList.Rows.Add(columnData);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(GlobalStrings.NoCustomerInThisDatabase);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(GlobalStrings.NoRowSelected);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void addCustomerToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -89,8 +148,9 @@ namespace Customer_Data
         {
             try
             {
+                ListCustomer.List.Clear();
                 DataGridView_CustomerList.Rows.Clear();
-                AddDatabase dialog = new AddDatabase();
+                AddDatabase dialog = new AddDatabase(ListCustomer);
                 dialog.ShowDialog();
                 if (dialog.DialogResult == DialogResult.OK)
                 {
@@ -198,6 +258,6 @@ namespace Customer_Data
             Properties.Settings.Default.Save();
         }
 
-        
+
     }
 }

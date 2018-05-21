@@ -44,6 +44,9 @@ namespace Customer_Data
             this.LastChange = lastChange;
         }
 
+        public Customer()
+        {
+        }
 
         #endregion
 
