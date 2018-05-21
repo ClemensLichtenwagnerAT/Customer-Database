@@ -76,7 +76,7 @@ namespace Customer_Data
         /// <returns></returns>
         public bool CreateNewDataBase(string name, string password)
         {
-            string path = @"C:\Datenbanken\" + name + ".csv";
+            string path = @"C:\Databases\" + name + ".csv";
             if (!File.Exists(path))
             {
                 File.WriteAllText(path, EncodeWord(password, true));
@@ -90,7 +90,7 @@ namespace Customer_Data
 
         public bool LoadDataBase(string name, string password)
         {
-            string path = @"C:\Datenbanken\" + name;
+            string path = @"C:\Databases\" + name;
             if (!File.Exists(path))
             {
                 throw new FileNotFoundException();
@@ -128,7 +128,7 @@ namespace Customer_Data
         {
             try
             {
-                string path = @"c:\Datenbanken\" + DataBaseName;
+                string path = @"c:\Databases\" + DataBaseName;
                 StringBuilder sb = new StringBuilder();
                 sb.AppendLine(EncodeWord(Password, true));
 
