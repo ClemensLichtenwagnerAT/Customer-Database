@@ -21,6 +21,7 @@ namespace Customer_Data
             CustomerList = customerList;
         }
 
+        #region Properties
         public string GetDataBaseName
         {
             get
@@ -36,6 +37,7 @@ namespace Customer_Data
                 return this.Txb_EnterPassword.Text;
             }
         }
+        #endregion
 
         private void Btn_SearchDatabase_Click(object sender, EventArgs e)
         {
@@ -67,7 +69,7 @@ namespace Customer_Data
                     DialogResult = DialogResult.OK;
                     this.Close();
                 }
-               else
+                else
                 {
                     MessageBox.Show(GlobalStrings.FailureOpenDatabase);
                 }

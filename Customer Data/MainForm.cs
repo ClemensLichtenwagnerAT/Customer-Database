@@ -38,11 +38,12 @@ namespace Customer_Data
                             DataGridView_CustomerList.Rows.Clear();
                             foreach (var customer in ListCustomer.List)
                             {
-                                string[] columnData = new string[] { customer.FirstName,
-                        customer.LastName,
-                        customer.EmailAddress,
-                        customer.OpenBalance.ToString() + "€",
-                        customer.LastChange.ToString() };
+                                string[] columnData = new string[] {
+                                    customer.FirstName,
+                                    customer.LastName,
+                                    customer.EmailAddress,
+                                    customer.OpenBalance.ToString() + "€",
+                                    customer.LastChange.ToString() };
                                 DataGridView_CustomerList.Rows.Add(columnData);
                             }
                         }
@@ -82,11 +83,12 @@ namespace Customer_Data
                             DataGridView_CustomerList.Rows.Clear();
                             foreach (var customer in ListCustomer.List)
                             {
-                                string[] columnData = new string[] { customer.FirstName,
-                        customer.LastName,
-                        customer.EmailAddress,
-                        customer.OpenBalance.ToString() + "€",
-                        customer.LastChange.ToString() };
+                                string[] columnData = new string[] {
+                                    customer.FirstName,
+                                    customer.LastName,
+                                    customer.EmailAddress,
+                                    customer.OpenBalance.ToString() + "€",
+                                    customer.LastChange.ToString() };
                                 DataGridView_CustomerList.Rows.Add(columnData);
                             }
                         }

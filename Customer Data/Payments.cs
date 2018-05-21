@@ -12,7 +12,6 @@ namespace Customer_Data
 {
     public partial class Payments : Form
     {
-        private double _Amount;
         private ListCustomer CustomerList = new ListCustomer();
         private Customer Customer = new Customer();
 
@@ -21,14 +20,6 @@ namespace Customer_Data
             this.CustomerList = customerlist;
             this.Customer = CustomerList.List[indexSelectedCustomer];
             InitializeComponent();
-        }
-
-        public double Amount
-        {
-            get
-            {
-                return this._Amount;
-            }
         }
 
         // Pay in

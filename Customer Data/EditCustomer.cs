@@ -24,21 +24,6 @@ namespace Customer_Data
             InitializeComponent();
         }
 
-        private void EditCustomer_Load(object sender, EventArgs e)
-        {
-            this.Text = GlobalStrings.FormEditCustomer;
-            label1.Text = GlobalStrings.LblFirstName;
-            label2.Text = GlobalStrings.LblLastName;
-            label3.Text = GlobalStrings.LblEmail;
-            label4.Text = GlobalStrings.LblMoney;
-            Btn_Close.Text = GlobalStrings.Btn_QuitText;
-            Btn_SaveCustomer.Text = GlobalStrings.Btn_SaveChanges;
-            this.Txb_FirstName.Text = Customer.FirstName;
-            this.Txb_LastName.Text = Customer.LastName;
-            this.Txb_EmailAddress.Text = Customer.EmailAddress;
-            this.Txb_MoneyAccount.Text = Customer.OpenBalance.ToString();
-        }
-
         private void Btn_SaveCustomer_Click(object sender, EventArgs e)
         {
             try
@@ -69,6 +54,34 @@ namespace Customer_Data
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Btn_Close_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EditCustomer_Load(object sender, EventArgs e)
+        {
+            this.Text = GlobalStrings.FormEditCustomer;
+            label1.Text = GlobalStrings.LblFirstName;
+            label2.Text = GlobalStrings.LblLastName;
+            label3.Text = GlobalStrings.LblEmail;
+            label4.Text = GlobalStrings.LblMoney;
+            Btn_Close.Text = GlobalStrings.Btn_QuitText;
+            Btn_SaveCustomer.Text = GlobalStrings.Btn_SaveChanges;
+            this.Txb_FirstName.Text = Customer.FirstName;
+            this.Txb_LastName.Text = Customer.LastName;
+            this.Txb_EmailAddress.Text = Customer.EmailAddress;
+            this.Txb_MoneyAccount.Text = Customer.OpenBalance.ToString();
         }
 
         #region Validating
@@ -159,17 +172,6 @@ namespace Customer_Data
         }
         #endregion
 
-        private void Btn_Close_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult = DialogResult.Cancel;
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
     }
 }

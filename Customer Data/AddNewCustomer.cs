@@ -78,6 +78,7 @@ namespace Customer_Data
             }
         }
 
+        #region Validating
         private void Txb_FirstName_Validating(object sender, CancelEventArgs e)
         {
             try
@@ -221,5 +222,6 @@ namespace Customer_Data
             Btn_Close.Text = GlobalStrings.Btn_QuitText;
             Btn_SaveCustomer.Text = GlobalStrings.BtnSave;
         }
+        #endregion
     }
 }
