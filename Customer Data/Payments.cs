@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,9 +82,18 @@ namespace Customer_Data
 
         private void Txb_Amount_Validating(object sender, CancelEventArgs e)
         {
+            char invalidChar;
             try
             {
-                if (!Double.TryParse(Txb_Amount.Text, out double money) || Txb_Amount.Text.Contains(','))
+                if (this.Text == "Payments")
+                {
+                    invalidChar = ',';
+                }
+                else
+                {
+                    invalidChar = '.';
+                }
+                if (!Double.TryParse(Txb_Amount.Text, out double money) || Txb_Amount.Text.Contains(invalidChar))
                 {
                     this.EP_ErrorMessage.SetError(Txb_Amount, GlobalStrings.FailureTxbAmount);
                     e.Cancel = true;
@@ -106,7 +116,7 @@ namespace Customer_Data
             Btn_Quit.Text = GlobalStrings.Btn_QuitText;
             Btn_PayIn.Text = GlobalStrings.BtnPayIn;
             Btn_PayOut.Text = GlobalStrings.BtnPayOut;
-            this.Text = GlobalStrings.FormAddCustomer;
+            this.Text = GlobalStrings.ToolStripMenuItemPayments;
             label1.Text = GlobalStrings.LblFirstName;
             label2.Text = GlobalStrings.LblLastName;
             label3.Text = GlobalStrings.LblEmail;
