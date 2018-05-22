@@ -218,66 +218,54 @@ namespace Customer_Data
             }
         }
 
-        //public static bool IsEmailAddressCorrect(string emailAddress)
-        //{
-        //bool isEmailcorrect = false;
-        //int counter = 0;
-        //int counterPoint = 0;
-        //try
-        //{
-        //    // E-mail address must have at least one . after the @ and must contain exactly one @
-        //    for (int i = 0; i < emailAddress.Length; i++)
-        //    {
-        //        if (emailAddress[i] == '@')
-        //        {
-        //            counter++; // counter for the @
-        //            for (int j = i; j < emailAddress.Length; j++)
-        //            {
-        //                if (emailAddress[j] == '.')
-        //                {
-        //                    counterPoint++; // counter for the points
-        //                }
-        //            }
-        //            if (counter == 1 && counterPoint != 0)
-        //            {
-        //                isEmailcorrect = true;
-        //            }
-        //        }
-        //    }// end for-loop
-        //    int counterCharactersAfterPoint = 0;
-        //    for (int i = emailAddress.Length - 1; i >= 0; i--)
-        //    {
-        //        if (emailAddress[i] == '.' && counterCharactersAfterPoint >= 2 && counterCharactersAfterPoint <= 4)
-        //        {
-        //            isEmailcorrect = true;
-        //            break;
-        //        }
-        //        else if (Char.IsLetter(emailAddress[i]))
-        //        {
-        //            counterCharactersAfterPoint++;
-        //        }
-        //        else
-        //        {
-        //            isEmailcorrect = false;
-        //            break;
-        //        }
-        //    }
-        //    if (!isEmailcorrect)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
+        public static bool IsEmailAddressCorrect(string emailAddress)
+        {
+            bool isEmailcorrect = false;
+            int counter = 0;
+            int counterPoint = 0;
 
-        //}
-        //}
-
-        #endregion
-
+            // E-mail address must have at least one . after the @ and must contain exactly one @
+            for (int i = 0; i < emailAddress.Length; i++)
+            {
+                if (emailAddress[i] == '@')
+                {
+                    counter++; // counter for the @
+                    for (int j = i; j < emailAddress.Length; j++)
+                    {
+                        if (emailAddress[j] == '.')
+                        {
+                            counterPoint++; // counter for the points
+                        }
+                    }
+                    if (counter == 1 && counterPoint != 0)
+                    {
+                        isEmailcorrect = true;
+                    }
+                }
+            }// end for-loop
+            int counterCharactersAfterPoint = 0;
+            for (int i = emailAddress.Length - 1; i >= 0; i--)
+            {
+                if (emailAddress[i] == '.' && counterCharactersAfterPoint >= 2 && counterCharactersAfterPoint <= 4)
+                {
+                    isEmailcorrect = true;
+                    break;
+                }
+                else if (Char.IsLetter(emailAddress[i]))
+                {
+                    counterCharactersAfterPoint++;
+                }
+                else
+                {
+                    isEmailcorrect = false;
+                    break;
+                }
+            }
+            return isEmailcorrect;
+        }
     }
+
+    #endregion
+
 }
+

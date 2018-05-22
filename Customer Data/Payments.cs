@@ -27,7 +27,7 @@ namespace Customer_Data
         {
             try
             {
-                this.Customer.PayIn(Convert.ToInt32(Txb_Amount.Text));
+                this.Customer.PayIn(Convert.ToDouble(Txb_Amount.Text));
                 // show new amount of the account
                 this.Txb_MoneyAccount.Text = Customer.OpenBalance.ToString();
             }
@@ -41,7 +41,7 @@ namespace Customer_Data
         {
             try
             {
-                this.Customer.PayOut(Convert.ToInt32(Txb_Amount.Text));
+                this.Customer.PayOut(Convert.ToDouble(Txb_Amount.Text));
                 // show new amount of the account
                 this.Txb_MoneyAccount.Text = Customer.OpenBalance.ToString();
             }
@@ -83,7 +83,7 @@ namespace Customer_Data
         {
             try
             {
-                if (!Double.TryParse(Txb_Amount.Text, out double money))
+                if (!Double.TryParse(Txb_Amount.Text, out double money) || Txb_Amount.Text.Contains(','))
                 {
                     this.EP_ErrorMessage.SetError(Txb_Amount, GlobalStrings.FailureTxbAmount);
                     e.Cancel = true;

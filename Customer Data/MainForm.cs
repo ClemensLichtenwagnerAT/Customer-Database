@@ -12,6 +12,7 @@ namespace Customer_Data
     {
         private ListCustomer ListCustomer = new ListCustomer();
         private bool IsDatabaseSelected = false;
+        private string NameDatabase;
 
         public MainForm()
         {
@@ -159,6 +160,7 @@ namespace Customer_Data
                     //ListCustomer.LoadDataBase(dialog.NameDatabase + ".csv", dialog.Password);
                     IsDatabaseSelected = true;
                     Lbl_NameDatabase.Text = dialog.NameDatabase;
+                    NameDatabase = dialog.NameDatabase;
                     DataGridView_CustomerList.Visible = true;
                 }
             }
@@ -181,6 +183,7 @@ namespace Customer_Data
                 {
                     IsDatabaseSelected = true;
                     Lbl_NameDatabase.Text = dialog.GetDataBaseName;
+                    NameDatabase = dialog.GetDataBaseName;
                     foreach (var customer in ListCustomer.List)
                     {
                         string[] columnData = new string[] { customer.FirstName,
@@ -223,8 +226,15 @@ namespace Customer_Data
             Properties.Settings.Default.Language = toolStripComboBox_SetLanguage.SelectedIndex;
             Properties.Settings.Default.Save();
             // Change language of the whole programm
+            if (NameDatabase == null)
+            {
+                Lbl_NameDatabase.Text = GlobalStrings.Lbl_DatabaseName_Default; 
+            }
+            else
+            {
+                Lbl_NameDatabase.Text = NameDatabase;
+            }
             this.Text = GlobalStrings.FormCustomerDatabase;
-            Lbl_NameDatabase.Text = GlobalStrings.Lbl_DatabaseName_Default;
             Lbl_Database.Text = GlobalStrings.Lbl_Database;
             databaseToolStripMenuItem.Text = GlobalStrings.ToolStripeMenüDatabase;
             addDatabaseToolStripMenuItem.Text = GlobalStrings.ToolStripMenuItemaAddDatabase;

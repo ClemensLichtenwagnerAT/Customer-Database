@@ -30,7 +30,7 @@ namespace Customer_Data
             {
                 if (Customer.LastName != this.Txb_LastName.Text || Customer.EmailAddress != this.Txb_EmailAddress.Text)
                 {
-                    if (CustomerList.CheckEmail(this.Txb_EmailAddress.Text))
+                    if (CustomerList.CheckEmail(this.Txb_EmailAddress.Text) || Customer.EmailAddress == Txb_EmailAddress.Text)
                     {
                         Customer.ChangeLastName(this.Txb_LastName.Text);
                         Customer.ChangeEmailAddress(this.Txb_EmailAddress.Text);
@@ -172,6 +172,6 @@ namespace Customer_Data
         }
         #endregion
 
-        
+
     }
 }

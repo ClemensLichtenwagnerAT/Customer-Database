@@ -46,7 +46,7 @@ namespace Customer_Data
             {
                 return this._DataBaseName;
             }
-            private set
+            set
             {
                 this._DataBaseName = value;
             }
@@ -58,7 +58,7 @@ namespace Customer_Data
             {
                 return this._Password;
             }
-            private set
+            set
             {
                 this._Password = value;
             }
