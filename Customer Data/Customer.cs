@@ -220,52 +220,38 @@ namespace Customer_Data
 
         public static bool IsEmailAddressCorrect(string emailAddress)
         {
-            bool isEmailcorrect = false;
-            int counter = 0;
-            int counterPoint = 0;
+            char[] charArr = emailAddress.ToCharArray();
+            if (!(charArr.Count(p => p.Equals('@')) == 1))
+            {
+                return false;
+            }
 
-            // E-mail address must have at least one . after the @ and must contain exactly one @
-            for (int i = 0; i < emailAddress.Length; i++)
+            string[] parts = emailAddress.Split('@');
+            if (parts[0].Count() == 0)
             {
-                if (emailAddress[i] == '@')
-                {
-                    counter++; // counter for the @
-                    for (int j = i; j < emailAddress.Length; j++)
-                    {
-                        if (emailAddress[j] == '.')
-                        {
-                            counterPoint++; // counter for the points
-                        }
-                    }
-                    if (counter == 1 && counterPoint != 0)
-                    {
-                        isEmailcorrect = true;
-                    }
-                }
-            }// end for-loop
-            int counterCharactersAfterPoint = 0;
-            for (int i = emailAddress.Length - 1; i >= 0; i--)
+                return false;
+            }
+            if (!parts[1].Contains("."))
             {
-                if (emailAddress[i] == '.' && counterCharactersAfterPoint >= 2 && counterCharactersAfterPoint <= 4)
+                return false;
+            }
+
+            parts = emailAddress.Split('.');
+            if (parts[parts.Count() - 1].Count() <= 1 || parts[parts.Count() - 1].Count() >= 5)
+            {
+                return false;
+            }
+
+            charArr = parts[parts.Count() - 1].ToCharArray();
+            foreach (Char ch in charArr)
+            {
+                if (!Char.IsLetter(ch))
                 {
-                    isEmailcorrect = true;
-                    break;
-                }
-                else if (Char.IsLetter(emailAddress[i]))
-                {
-                    counterCharactersAfterPoint++;
-                }
-                else
-                {
-                    isEmailcorrect = false;
-                    break;
+                    return false;
                 }
             }
-            return isEmailcorrect;
+            return true;
         }
+        #endregion
     }
-
-    #endregion
-
 }
-
